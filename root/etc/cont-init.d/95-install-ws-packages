@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# Install ZSH
+echo "**** Installing packages ****"
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update && \
+apt-get install -y \
+    zsh htop nmap bat tree \
+    fzf fd-find cmake make \
+    wget python3 python3-pip \
+    traceroute bc vim \
+    dnsutils postgresql-client
