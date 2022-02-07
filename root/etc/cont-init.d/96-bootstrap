@@ -66,12 +66,12 @@ if [ -f $DOT_FILES_DIR/kubeconfig ]; then
   chown -R abc:abc /config/.kube
 fi
 
-# kubeconfig file
-if [ -f $DOT_FILES_DIR/awscretentials ]; then
-  echo "**** BootStrap AWS cretentials file ****"
+# awscredentials file
+if [ -f $DOT_FILES_DIR/awscredentials ]; then
+  echo "**** BootStrap AWS credentials file ****"
   [ ! -d /config/.aws ] && mkdir -p /config/.aws
-  cp -v $DOT_FILES_DIR/awscretentials /config/.aws/cretentials
-  chmod 640 /config/.aws/cretentials
+  cp -v $DOT_FILES_DIR/awscredentials /config/.aws/credentials
+  chmod 640 /config/.aws/credentials
   chown -R abc:abc /config/.aws
 fi
 
