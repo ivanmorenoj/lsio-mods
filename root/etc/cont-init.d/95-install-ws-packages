@@ -12,3 +12,7 @@ apt-get install -y \
     wget python3 python3-pip \
     traceroute bc vim \
     dnsutils postgresql-client
+
+echo "**** Install fzf zsh keybindings ****"
+curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
+  -o /usr/share/doc/fzf/examples/key-bindings.zsh
