@@ -3,8 +3,7 @@
 # Install ZSH
 echo "**** Installing packages ****"
 
-export DEBIAN_FRONTEND=noninteractive
-
+DEBIAN_FRONTEND=noninteractive && \
 apt-get update && \
 apt-get install -y \
     zsh htop nmap bat tree \
