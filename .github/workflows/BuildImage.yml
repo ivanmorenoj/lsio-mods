@@ -4,8 +4,8 @@ on: [push, pull_request, workflow_dispatch]
 
 env:
   ENDPOINT: "ivanmorenoj/lsio-mods" #don't modify
-  BASEIMAGE: "code-server" #replace
-  MODNAME: "ws" #replace
+  BASEIMAGE: "wireguard" #replace
+  MODNAME: "udp2raw" #replace
 
 jobs:
   build:

@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+UDP2RAW_CONF_FILE=${UDP2RAW_CONF_FILE:-/etc/udp2raw/udp2raw.conf}
+
+exec 2>&1 \
+    /usr/bin/udp2raw --conf-file $UDP2RAW_CONF_FILE

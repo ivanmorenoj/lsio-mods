@@ -1,0 +1,23 @@
+#!/usr/bin/with-contenv bash
+
+UDP2RAW_CONF_FILE=${UDP2RAW_CONF_FILE:-/etc/udp2raw/udp2raw.conf}
+UDP2RAW_ARCH=${UDP2RAW_ARCH:-amd64}
+UDP2RAW_USE_RAND_KEY=${UDP2RAW_USE_RAND_KEY:-no}
+
+# configure random key
+if [ "$UDP2RAW_USE_RAND_KEY" == "yes" ]; then
+  echo "**** Configure a random key ****"
+  RAND_KEY=$(tr -dc 'a-zA-Z0-9!@%^&()-+=' < /dev/urandom | head -c 32)
+  sed -i "/^-k/c\-k $RAND_KEY" $UDP2RAW_CONF_FILE
+  printf "\033[0;31m**** Random key generated:\t ${RAND_KEY} ****\033[0m\n" 
+fi
+
+# configure user defined key
+if [ ! -z "$UDP2RAW_KEY" ]; then
+  echo "**** Configure key from UDP2RAW_KEY ****"
+  sed -i "/^-k/c\-k $UDP2RAW_KEY" $UDP2RAW_CONF_FILE
+fi
+
+# create symilink 
+echo "**** Symilink /usr/bin/udp2raw -> /usr/local/bin/udp2raw_$UDP2RAW_ARCH ****"
+ln -vs /usr/local/bin/udp2raw_${UDP2RAW_ARCH} /usr/bin/udp2raw
