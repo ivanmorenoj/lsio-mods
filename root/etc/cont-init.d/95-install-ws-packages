@@ -10,7 +10,9 @@ apt-get install -y \
     fzf fd-find cmake make \
     wget python3 python3-pip \
     traceroute bc vim openssh-server \
-    dialog dnsutils postgresql-client
+    dialog dnsutils postgresql-client \
+    ghostscript make biber \
+    texlive-latex-extra texlive-lang-spanish
 
 echo "**** Install fzf zsh keybindings ****"
 curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
