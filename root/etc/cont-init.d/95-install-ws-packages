@@ -12,7 +12,8 @@ apt-get install -y \
     traceroute bc vim openssh-server \
     dialog dnsutils postgresql-client \
     ghostscript make biber \
-    texlive-latex-extra texlive-lang-spanish
+    texlive-latex-extra texlive-lang-spanish && \
+apt-get upgrade -y
 
 echo "**** Install fzf zsh keybindings ****"
 curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
