@@ -33,7 +33,7 @@ COPY root/ /root-layer/
 # runtime stage
 FROM scratch
 
-LABEL maintainer="Ivan Moreno"
+LABEL org.opencontainers.image.source https://github.com/ivanmorenoj/lsio-mods
 
 # Add files from buildstage
 COPY --from=buildstage /root-layer/ /
