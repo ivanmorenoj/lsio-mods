@@ -10,8 +10,13 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v4
 
       - name: Build image
         run: |
@@ -29,10 +34,10 @@ jobs:
         if: ${{ github.ref == format('refs/heads/{0}-{1}', env.BASEIMAGE, env.MODNAME) }}
         run: |
           echo "CR_USER=${{ secrets.CR_USER }}" >> $GITHUB_ENV
-          echo "CR_PAT=${{ secrets.CR_PAT }}" >> $GITHUB_ENV
+          echo "CR_PAT=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
           echo "DOCKERUSER=${{ secrets.DOCKERUSER }}" >> $GITHUB_ENV
           echo "DOCKERPASS=${{ secrets.DOCKERPASS }}" >> $GITHUB_ENV
-          if [[ "${{ secrets.CR_USER }}" == "" && "${{ secrets.CR_PAT }}" == "" && "${{ secrets.DOCKERUSER }}" == "" && "${{ secrets.DOCKERPASS }}" == "" ]]; then
+          if [[ "${{ secrets.CR_USER }}" == "" && "${{ secrets.GITHUB_TOKEN }}" == "" && "${{ secrets.DOCKERUSER }}" == "" && "${{ secrets.DOCKERPASS }}" == "" ]]; then
             echo "::error::Push credential secrets missing."
             echo "::error::You must set either CR_USER & CR_PAT or DOCKERUSER & DOCKERPASS as secrets in your repo settings."
             echo "::error::See https://github.com/linuxserver/docker-mods/blob/master/README.md for more information/instructions."
@@ -42,7 +47,7 @@ jobs:
       - name: Login to GitHub Container Registry
         if: ${{ github.ref == format('refs/heads/{0}-{1}', env.BASEIMAGE, env.MODNAME) && env.CR_USER && env.CR_PAT }}
         run: |
-          echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ secrets.CR_USER }} --password-stdin
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ secrets.CR_USER }} --password-stdin
 
       - name: Push tags to GitHub Container Registry
         if: ${{ github.ref == format('refs/heads/{0}-{1}', env.BASEIMAGE, env.MODNAME) && env.CR_USER && env.CR_PAT }}
