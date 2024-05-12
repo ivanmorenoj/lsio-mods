@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+# Bootsrap config files
+echo "**** Add abc to sudoers file NOPASSWD ****"
+
+echo "abc ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/abc
