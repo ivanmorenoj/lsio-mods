@@ -3,4 +3,4 @@
 # Bootsrap config files
 echo "**** Add abc to sudoers file NOPASSWD ****"
 
-echo "abc ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/abc
+sed -i '/^abc/c\abc ALL=(ALL:ALL) NOPASSWD : ALL' /etc/sudoers 
