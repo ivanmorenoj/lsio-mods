@@ -1,4 +1,4 @@
-FROM docker.io/linuxserver/code-server:v4.0.2-ls111
+FROM docker.io/linuxserver/code-server
 
 RUN \
   echo "**** Installing WorkSpace packages ****" && \
