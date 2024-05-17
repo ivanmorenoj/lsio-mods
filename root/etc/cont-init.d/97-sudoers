@@ -1,6 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-# Bootsrap config files
-echo "**** Add abc to sudoers file NOPASSWD ****"
-
-echo "sed -i '/^abc/c\\abc ALL=(ALL:ALL) NOPASSWD : ALL' /etc/sudoers" | tee -a /etc/s6-overlay/s6-rc.d/init-code-server/run
