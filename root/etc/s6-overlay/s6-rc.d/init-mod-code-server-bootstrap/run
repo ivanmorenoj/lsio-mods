@@ -17,6 +17,12 @@ else
       /config/.local/bin/install_ohmyzsh.sh --unattended --keep-zshrc
 fi
 
+# zsh keybindings
+if [ ! -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+  curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
+    --output /usr/share/doc/fzf/examples/key-bindings.zsh --create-dirs
+fi
+
 ## Install ZSH Plugins
 # Install Zsh syntax highlighting
 if [ ! -d /config/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
