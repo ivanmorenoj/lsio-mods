@@ -14,6 +14,9 @@ mkdir -p \
 USER_NAME=${USER_NAME:-abc}
 echo "User name is set to $USER_NAME"
 
+# Change default shell for abc user
+usermod --shell /usr/bin/zsh abc
+
 # symlink out ssh config directory
 if [[ ! -L /etc/ssh ]]; then
     if [[ ! -f /config/ssh_host_keys/sshd_config ]]; then
