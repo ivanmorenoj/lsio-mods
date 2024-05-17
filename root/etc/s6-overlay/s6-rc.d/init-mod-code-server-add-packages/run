@@ -31,4 +31,5 @@ echo "\
     dnsutils \
     postgresql-client \
     podman \
+    openssh-server \
     podman-docker" >> /mod-repo-packages-to-install.list
