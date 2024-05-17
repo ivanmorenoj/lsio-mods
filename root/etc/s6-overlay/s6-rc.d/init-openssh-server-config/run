@@ -1,6 +1,12 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+# intall openssh server dependencies
+echo "***** Installing openssh server dependencies *****"
+apt-get update && \
+apt-get install -y \
+    openssh-server 
+
 # create folders
 mkdir -p \
     /config/{.ssh,ssh_host_keys,logs/openssh}
