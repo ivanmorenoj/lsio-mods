@@ -4,7 +4,7 @@
 echo "**** Adding packages to package install list ****"
 
 curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
-  -o /usr/share/doc/fzf/examples/key-bindings.zsh
+  --output /usr/share/doc/fzf/examples/key-bindings.zsh --create-dirs
 
 echo "\
     zsh \
