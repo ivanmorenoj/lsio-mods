@@ -2,10 +2,10 @@
 # shellcheck shell=bash
 
 # install openssh server dependencies
-#echo "***** Installing openssh server dependencies *****"
-#apt-get update && \
-#apt-get install -y \
-#    openssh-server 
+echo "***** Installing openssh server dependencies *****"
+apt-get update && \
+apt-get install -y \
+    openssh-server 
 
 # create folders
 mkdir -p \
