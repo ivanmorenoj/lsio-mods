@@ -3,6 +3,9 @@
 # Install ZSH
 echo "**** Adding packages to package install list ****"
 
+curl -fsSL "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh" \
+  -o /usr/share/doc/fzf/examples/key-bindings.zsh
+
 echo "\
     zsh \
     htop \
@@ -24,7 +27,6 @@ echo "\
     traceroute \
     bc \
     vim \
-    openssh-server \
     dialog \
     dnsutils \
     postgresql-client \
