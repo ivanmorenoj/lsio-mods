@@ -29,4 +29,7 @@ echo "\
     postgresql-client \
     podman \
     openssh-server \
+    iproute2 \
+    inetutils-ping \
+    net-tools \
     podman-docker" >> /mod-repo-packages-to-install.list
