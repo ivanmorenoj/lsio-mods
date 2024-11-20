@@ -1,8 +1,8 @@
 FROM lsiobase/ubuntu:jammy as buildstage
 
-ENV AWS_CLI_VERSION=2.15.41
-ENV KUBECTL_VERSION=v1.29.4
-ENV HELM_VERSION=v3.11.0
+ENV AWS_CLI_VERSION=2.22.1
+ENV KUBECTL_VERSION=v1.29.10
+ENV HELM_VERSION=v3.16.3
 
 RUN \
   echo " ****  Installing AWS CLI tool ****" && \
