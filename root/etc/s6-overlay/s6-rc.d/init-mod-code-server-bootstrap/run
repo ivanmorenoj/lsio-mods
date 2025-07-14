@@ -106,3 +106,10 @@ find $SSH_KEYS_DIR -type f | while read SSH_KEY_FILE; do
   chmod 400 /config/.ssh/$KEY_NAME
   chown -R abc:abc /config/.ssh
 done
+
+
+# install node dependencies
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash
+
+# intall nodejs and npmn
+apt-get install -y nodejs npm

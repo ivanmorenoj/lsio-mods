@@ -1,8 +1,8 @@
-FROM lsiobase/ubuntu:jammy as buildstage
+FROM lsiobase/ubuntu:jammy AS buildstage
 
-ENV AWS_CLI_VERSION=2.22.1
-ENV KUBECTL_VERSION=v1.29.10
-ENV HELM_VERSION=v3.16.3
+ENV AWS_CLI_VERSION=2.27.50
+ENV KUBECTL_VERSION=v1.31.10
+ENV HELM_VERSION=v3.18.1
 
 RUN \
   echo " ****  Installing AWS CLI tool ****" && \
@@ -33,7 +33,7 @@ COPY root/ /root-layer/
 # runtime stage
 FROM scratch
 
-LABEL org.opencontainers.image.source https://github.com/ivanmorenoj/lsio-mods
+LABEL org.opencontainers.image.source=https://github.com/ivanmorenoj/lsio-mods
 
 # Add files from buildstage
 COPY --from=buildstage /root-layer/ /
