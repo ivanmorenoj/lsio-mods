@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+# Bootsrap config files
+echo "**** Installing custom packages ****"
+# install node dependencies
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash
+
+# intall nodejs and npmn
+apt-get install -y nodejs
+
+# Install gemini
+npm install -g @google/gemini-cli
